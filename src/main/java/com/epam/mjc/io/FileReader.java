@@ -1,6 +1,7 @@
 package com.epam.mjc.io;
 
 import java.io.File;
+import java.io.FileInputStream;
 
 
 public class FileReader {
