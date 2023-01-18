@@ -24,11 +24,22 @@ public class FileReader {
         // 2. Parse this string for key-value pairs
         String[] arrOfText = textFromFile.split("\n", 4);
 
-        return new Profile(
-                arrOfText[0].substring(6),
-                Integer.parseInt(arrOfText[1].substring(5)),
-                arrOfText[2].substring(7),
-                Long.parseLong(arrOfText[3].substring(7))
-        );
+        String name = "";
+        Integer age = 0;
+        String email = "";
+        Long phone = 0L;
+
+        try {
+
+            name = arrOfText[0].substring(6);
+            age = Integer.parseInt(arrOfText[1].substring(5));
+            email = arrOfText[2].substring(7);
+            phone = Long.parseLong(arrOfText[3].substring(7));
+
+        } catch (NumberFormatException nfe) {
+            System.out.println("NumberFormat Exception: invalid input string");
+        }
+
+        return new Profile(name, age, email, phone);
     }
 }
