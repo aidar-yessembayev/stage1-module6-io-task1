@@ -25,10 +25,6 @@ public class FileReader {
         // 2. Parse this string for key-value pairs
         String[] arrOfText = textFromFile.toString().split("\n", 4);
 
-        for (int i = 0; i < arrOfText.length; i++) {
-            System.out.println(arrOfText[i] + " : ");
-        }
-
         String name = "";
         Integer age = 0;
         String email = "";
