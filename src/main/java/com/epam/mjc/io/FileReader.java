@@ -9,13 +9,13 @@ public class FileReader {
     public Profile getDataFromFile(File file) {
         
         // 1. Reading file data into string
-        String textFromFile = "";
+        StringBuilder textFromFile = new StringBuilder();
 
         try (FileInputStream in = new FileInputStream(file.getPath())) {
 
             int ch;
             while ((ch = in.read()) != -1) {
-                textFromFile += (char) ch;
+                textFromFile.append((char) ch);
             }
 
         } catch (Exception ex) {
@@ -23,7 +23,11 @@ public class FileReader {
         }
 
         // 2. Parse this string for key-value pairs
-        String[] arrOfText = textFromFile.split("\n", 4);
+        String[] arrOfText = textFromFile.toString().split("\n", 4);
+
+        for (int i = 0; i < arrOfText.length; i++) {
+            System.out.println(arrOfText[i] + " : ");
+        }
 
         String name = "";
         Integer age = 0;
